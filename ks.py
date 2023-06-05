@@ -1,4 +1,4 @@
-'''def choice():
+def choice():
 	try:
 		while True:
 			c=input('Do you want to Sort Arrays?(y/n) : ')
@@ -85,11 +85,5 @@ def rev(a):
 #def --():
 
 choice()
-#rev(bubble([1,5,3,0,2]))'''
+#rev(bubble([1,5,3,0,2]))
 
-
-
-a=30
-b=50
-c=a+b
-print (c)
