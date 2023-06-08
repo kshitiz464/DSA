@@ -4,7 +4,6 @@ def choice():
 			c=input('Do you want to Sort Arrays?(y/n) : ')
 			if c in 'yY':
 				a=[]
-				e=1
 				n=int(input('Enter the length of array:'))
 				for i in range(n):
 					print(i+1,'element:',end='')
@@ -14,7 +13,8 @@ def choice():
 				print('1. Insertion Sort')
 				print('2. Selection Sort')
 				print('3. Bubble Sort')
-				print('4. Exit')
+				print('4. Merge Sort')
+				print('5. Exit')
 				ch=int(input('Enter your choice!- '))
 				print('Enter in which order do you want to sort? (1.Ascending or 2.Descending)',end='')
 				order=int(input())
@@ -25,6 +25,8 @@ def choice():
 						print(selection(a))
 					elif ch==3:
 						print(bubble(a))
+					elif ch==4: 
+						print(merges(a))
 					else:
 						print('Terminating the program! ')
 						break
@@ -35,6 +37,8 @@ def choice():
 						rev(selection(a))
 					elif ch==3:
 						rev(bubble(a))
+					elif ch==4:
+						rev(merges(a))
 					else:
 						print('Terminating the program! ')
 						break
@@ -74,6 +78,32 @@ def bubble(a):
 				a[i],a[j]=a[j],a[i]
 
 	return a
+def merges(a):
+	if len(a) > 1:
+		r = len(a)//2
+		L = a[:r]
+		M = a[r:]
+		merges(L)
+		merges(M)
+		i = j = k = 0
+		while i < len(L) and j < len(M):
+			if L[i] < M[j]:
+				a[k] = L[i]
+				i += 1
+			else:
+				a[k] = M[j]
+				j += 1
+			k += 1
+		while i < len(L):
+			a[k] = L[i]
+			i += 1
+			k += 1
+		while j < len(M):
+			a[k] = M[j]
+			j += 1
+			k += 1
+		return a
+
 def rev(a):
 	narr=[]
 	size=len(a)
@@ -86,4 +116,3 @@ def rev(a):
 
 choice()
 #rev(bubble([1,5,3,0,2]))
-
